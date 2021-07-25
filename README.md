@@ -1,16 +1,41 @@
 # movie_app
 
-A new Flutter application.
+A simple yet sufficient flutter application to fetch: 
+- Popular Movies
+- Latest Movies
+- Top Rated Movies
+- Now Playing Movies
+- Upcoming Movies
+using api from [themoviedb.org](https://www.themoviedb.org/)
+
+## Why this project
+
+This project is built to show how to use [Riverpod package](https://riverpod.dev/) as the state management tool for your [flutter application](https://flutter.io/).
+
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+After cloning the project, check the TODO, and add your [TMDB API KEY](https://developers.themoviedb.org/3/getting-started/introduction).
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![](https://raw.githubusercontent.com/De-Morgan/Movie-App/master/screenshot/screenshot.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Libraries Used
+--------------
+* [Flutter Riverpod][0] - A state-management library
+* [Dio][1] - A powerful Http client for Dart.
+
+[0]: https://pub.dev/packages/flutter_riverpod
+[1]: https://pub.dev/packages/dio
+
+## Native Implementation?
+
+Check the former implementation of the project in native android using kotlin and jetpack libraries.
+[Native implementation](https://github.com/De-Morgan/Movies-Trailers)
+
+
+Support
+-------
+
+If you like the project, do well to star it and also keep a watch.
