@@ -31,22 +31,23 @@ class MyMovieApp extends StatelessWidget {
 }
 
 class Title extends ConsumerWidget {
+
   @override
-  Widget build(BuildContext context, watch) {
-    final movieType = watch(movieTypeProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final movieType = ref.watch(movieTypeProvider.state).state;
     return Text("${movieType.name} movies");
   }
 }
 
 class MovieTags extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final movieType = watch(movieTypeProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final movieType = ref.watch(movieTypeProvider.state).state;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: MovieType.values
           .map((type) => InkWell(
-                onTap: () => context.read(movieTypeProvider).state = type,
+                onTap: () => ref.read(movieTypeProvider.state).state = type,
                 child: Chip(
                   label: Text(
                     "${type.name}",
@@ -63,8 +64,8 @@ class MovieTags extends ConsumerWidget {
 
 class MovieList extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final moviesAsyncValue = watch(moviesProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final moviesAsyncValue = ref.watch(moviesProvider);
     return moviesAsyncValue.maybeWhen(
         orElse: () => Center(child: CircularProgressIndicator()),
         data: (movies) => Center(
@@ -117,8 +118,8 @@ class MovieDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (BuildContext context,
-          T Function<T>(ProviderBase<Object, T>) watch, Widget child) {
-        final movie = watch(movieProvider);
+          ref, Widget child) {
+        final movie = ref.watch(movieProvider);
         return Scaffold(
           appBar: AppBar(
             title: Text('${movie.title}'),
